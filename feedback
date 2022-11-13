@@ -1,0 +1,29 @@
+// with help from ardumotive.com & MERT arduino and tech
+
+// identifying constant variables where the photoresistor and LED are
+const int photoResistor = A0; 
+const int LEDpin = 13;
+int value;
+
+void setup() {
+    
+//light into the photoresistor is input, LED is output
+  pinMode(LEDpin, OUTPUT);
+  pinMode(photoResistor, INPUT);
+  
+}
+
+void loop() {
+
+//setting the value to the amount of light input to the photoresistor
+ value = analogRead(photoResistor);
+
+// if it is dark, the LED is on
+  if (value < 700){
+    digitalWrite(LEDpin, HIGH);
+  }
+// if it is bright, LED is off
+  else {
+    digitalWrite(LEDpin, LOW);
+  }
+}
